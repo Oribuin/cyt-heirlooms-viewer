@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "cyt-heirlooms-viewer",
+  "version": "1.0",
+  "name": "CYT Heirloom Viewer",
+  "description": "A mod used to showcase what items in a gui is an heirloom",
+  "authors": ["Oribuin"],
+  "environment": "client",
+  "accessWidener": "heirloomviewer.accesswidener",
+  "entrypoints": {
+    "client": [
+      "dev.oribuin.heirloomviewer.HeirloomViewerMod"
+    ]
+  },
+  "mixins": ["cyt-heirlooms-viewer.mixins.json"],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=21",
+    "fabric": "*"
+  }
+}

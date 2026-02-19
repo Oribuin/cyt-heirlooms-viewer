@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.oribuin.heirloomviewer.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "InventorySlotMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
