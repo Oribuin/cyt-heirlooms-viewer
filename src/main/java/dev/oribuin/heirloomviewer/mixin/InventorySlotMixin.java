@@ -1,5 +1,7 @@
 package dev.oribuin.heirloomviewer.mixin;
 
+import dev.oribuin.heirloomviewer.config.HeirloomConfig;
+import dev.oribuin.heirloomviewer.config.HeirloomConfigModel;
 import dev.oribuin.heirloomviewer.util.Heirloom;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -11,6 +13,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.awt.*;
 
 @Mixin(HandledScreen.class)
 public class InventorySlotMixin extends Screen {
@@ -36,10 +40,10 @@ public class InventorySlotMixin extends Screen {
         Heirloom heirloom = Heirloom.getQuality(stack);
         if (heirloom == null) return;
 
-//        Color color = HeirloomConfig.from(heirloom);
-//        if (color == null) return; 
+        Color color = HeirloomConfigModel.from(heirloom);
+        if (color == null) return; 
 
-        context.fill(slot.x, slot.y, slot.x + 16, slot.y + 16, heirloom.getColor(180).getRGB());
+        context.fill(slot.x, slot.y, slot.x + 16, slot.y + 16, color.getRGB());
     }
 
 }

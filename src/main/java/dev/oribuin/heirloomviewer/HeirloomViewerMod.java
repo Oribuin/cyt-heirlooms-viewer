@@ -5,7 +5,7 @@ import net.fabricmc.api.ClientModInitializer;
 
 public class HeirloomViewerMod implements ClientModInitializer {
 
-    public static final String MOD_ID = "cyt-heirlooms-viewer";
+    public static final String MODID = "cyt-heirlooms-viewer";
     public static final HeirloomConfig CONFIG = HeirloomConfig.createAndLoad();
 
     /**

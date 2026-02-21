@@ -1,0 +1,8 @@
+{
+  "text.config.heirloom-config.option.opacity": "The opacity of the highlight",
+  "text.config.heirloom-config.option.common": "Common Rarity Color",
+  "text.config.heirloom-config.option.uncommon": "Uncommon Rarity Color",
+  "text.config.heirloom-config.option.rare": "Rare Rarity Color",
+  "text.config.heirloom-config.option.epic": "Epic Rarity Color",
+  "text.config.heirloom-config.option.legendary": "Legendary Rarity Color"
+}
