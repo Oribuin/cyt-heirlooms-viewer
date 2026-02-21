@@ -1,4 +1,5 @@
 {
+  "text.config.heirloom-config.option.title": "CYT Heirloom Viewer - Options",
   "text.config.heirloom-config.option.opacity": "The opacity of the highlight",
   "text.config.heirloom-config.option.common": "Common Rarity Color",
   "text.config.heirloom-config.option.uncommon": "Uncommon Rarity Color",
