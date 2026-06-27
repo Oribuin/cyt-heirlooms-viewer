@@ -31,7 +31,7 @@ public class InventorySlotMixin extends Screen {
      * @param ci      Whether the event should be canceled
      */
     @Inject(method = "extractSlot", at = @At("HEAD"))
-    public void drawSlot(GuiGraphicsExtractor extractor, Slot slot, int mouseX, int mouseY, CallbackInfo ci) {
+    public void drawSlot(GuiGraphicsExtractor graphics, Slot slot, int mouseX, int mouseY, CallbackInfo ci) {
         ItemStack stack = slot.getItem();
         if (stack.isEmpty()) return;
 
@@ -41,7 +41,7 @@ public class InventorySlotMixin extends Screen {
         Color color = heirloom.getColor();
         if (color == null) return; 
 
-        extractor.fill(slot.x, slot.y, slot.x + 16, slot.y + 16, color.getRGB());
+        graphics.fill(slot.x, slot.y, slot.x + 16, slot.y + 16, color.getRGB());
     }
 
 }

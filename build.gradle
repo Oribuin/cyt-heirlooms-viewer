@@ -27,11 +27,10 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-    implementation "me.lilac:camellia-fabric:${project.camellia_version}"
     implementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+    implementation include (group: 'me.lilac', name: 'camellia-fabric', version: '1.0.2')
 //    annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
 }
-
 processResources {
     inputs.property "version", project.version
     inputs.property "minecraft_version", project.minecraft_version
@@ -47,14 +46,10 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
-
-    // Minecraft 1.21 (21w19a) upwards uses Java 21.
     it.options.release = 25
 }
 
 java {
-    withSourcesJar()
-
     sourceCompatibility = JavaVersion.VERSION_25
     targetCompatibility = JavaVersion.VERSION_25
 }

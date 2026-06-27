@@ -19,8 +19,8 @@ public final class SettingsConfig implements SettingHolder {
     public static final SettingHolder INSTANCE = new SettingsConfig();
     private static final List<Setting<?>> SETTINGS = new ArrayList<>();
 
-    public static final Setting<Double> OPACITY = create(
-            SettingBuilder.of("background_opacity", Codec.DOUBLE, 70.0)
+    public static final Setting<Integer> OPACITY = create(
+            SettingBuilder.of("background_opacity", Codec.INT, 70)
                     .input(new NumberInput<>(1, 100))
     );
 
@@ -39,7 +39,7 @@ public final class SettingsConfig implements SettingHolder {
                             "heirloom_uncommon", Util.HEX_COLOR_CODEC, Color.decode("#69b869")
                     )
                     .section("background-colors")
-                    .input(new ColorInput<>(false))
+                    .input(new ColorInput<>(true))
     );
     public static final Setting<Color> RARE = create(SettingBuilder.of(
                             "heirloom_rare", Util.HEX_COLOR_CODEC, Color.decode("#54abd1")

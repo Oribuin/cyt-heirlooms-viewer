@@ -1,2 +1,2 @@
 classTweaker  v1  official
-accessible method net/minecraft/client/gui/screen/ingame/HandledScreen drawSlot (Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/screen/slot/Slot;II)V
+accessible method net/minecraft/client/gui/screens/inventory/AbstractContainerScreen extractSlot (Lnet/minecraft/client/gui/GuiGraphicsExtractor;Lnet/minecraft/world/inventory/Slot;II)V

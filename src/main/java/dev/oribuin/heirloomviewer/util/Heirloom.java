@@ -2,6 +2,7 @@ package dev.oribuin.heirloomviewer.util;
 
 import dev.oribuin.heirloomviewer.HeirloomViewerMod;
 import dev.oribuin.heirloomviewer.config.SettingsConfig;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
@@ -30,12 +31,16 @@ public enum Heirloom { // because it is fun to watch it smack the screen?
     }
 
     public Color getColor() {
+        int opacity = SettingsConfig.OPACITY.get();
         Color retrieved = this.supplier.get();
         if (retrieved != null) retrieved = this.backup;
         if (retrieved == null) return null;
-
-        float opacity = (float) (SettingsConfig.OPACITY.get() / 100);
-        return new Color(retrieved.getRed(), retrieved.getGreen(), retrieved.getBlue(), opacity);
+        try {
+            return new Color(retrieved.getRed(), retrieved.getGreen(), retrieved.getBlue());
+        } catch (IllegalArgumentException ex) {
+            System.out.printf("Failed to get color[%s,%s,%s %s]:" + ex.getMessage() + "\n", retrieved.getRed(), retrieved.getGreen(), retrieved.getBlue(), opacity);
+            return null;
+        }
     }
 
     /**
