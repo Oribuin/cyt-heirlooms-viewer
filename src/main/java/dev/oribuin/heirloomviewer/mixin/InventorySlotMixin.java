@@ -24,7 +24,7 @@ public class InventorySlotMixin extends Screen {
     /**
      * Draw an item inside an item with a specified opacity if an heirloom was found
      *
-     * @param extractor The drawing context
+     * @param graphics The drawing context
      * @param slot    The slot the heirloom is found in
      * @param mouseX  The current mouse x position
      * @param mouseY  The current mouse y position
