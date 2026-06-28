@@ -28,7 +28,7 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
     implementation "com.terraformersmc:modmenu:${project.modmenu_version}"
-    implementation include (group: 'me.lilac', name: 'camellia-fabric', version: '1.0.4')
+    implementation include (group: 'me.lilac', name: 'camellia-fabric', version: '1.0.5')
 //    annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
 }
 processResources {

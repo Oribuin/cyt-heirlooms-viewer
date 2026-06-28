@@ -1,13 +1,11 @@
 package dev.oribuin.heirloomviewer.config;
 
-import com.mojang.serialization.Codec;
 import dev.oribuin.heirloomviewer.HeirloomViewerMod;
 import me.lilac.camellia.config.Setting;
 import me.lilac.camellia.config.SettingBuilder;
 import me.lilac.camellia.config.SettingHolder;
 import me.lilac.camellia.config.Util;
 import me.lilac.camellia.input.ColorInput;
-import me.lilac.camellia.input.NumberInput;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -19,47 +17,53 @@ public final class SettingsConfig implements SettingHolder {
     public static final SettingHolder INSTANCE = new SettingsConfig();
     private static final List<Setting<?>> SETTINGS = new ArrayList<>();
 
-    public static final Setting<Integer> OPACITY = create(
-            SettingBuilder.of("background_opacity", Codec.INT, 70)
-                    .tab("client")
-                    .input(new NumberInput<>(1, 100))
-    );
-
     public static final Setting<Color> COMMON = create(SettingBuilder.of(
-                            "heirloom_common", Util.HEX_COLOR_CODEC, Color.decode("#4e5657")
+                            "heirloom_common", Util.HEX_COLOR_CODEC, decode("#4e5657", 178)
                     )
                     .tab("client")
                     .section("background-colors")
-                    .input(new ColorInput<>(false))
+                    .input(new ColorInput<>(true))
     );
     public static final Setting<Color> UNCOMMON = create(SettingBuilder.of(
-                            "heirloom_uncommon", Util.HEX_COLOR_CODEC, Color.decode("#69b869")
+                            "heirloom_uncommon", Util.HEX_COLOR_CODEC, decode("#69b869", 178)
                     )
                     .tab("client")
                     .section("background-colors")
                     .input(new ColorInput<>(true))
     );
     public static final Setting<Color> RARE = create(SettingBuilder.of(
-                            "heirloom_rare", Util.HEX_COLOR_CODEC, Color.decode("#54abd1")
+                            "heirloom_rare", Util.HEX_COLOR_CODEC, decode("#54abd1", 178)
                     )
                     .tab("client")
                     .section("background-colors")
-                    .input(new ColorInput<>(false))
+                    .input(new ColorInput<>(true))
     );
     public static final Setting<Color> EPIC = create(SettingBuilder.of(
-                            "heirloom_epic", Util.HEX_COLOR_CODEC, Color.decode("#a767cf")
+                            "heirloom_epic", Util.HEX_COLOR_CODEC, decode("#a767cf", 178)
                     )
                     .tab("client")
                     .section("background-colors")
-                    .input(new ColorInput<>(false))
+                    .input(new ColorInput<>(true))
     );
     public static final Setting<Color> LEGENDARY = create(SettingBuilder.of(
-                            "heirloom_legendary", Util.HEX_COLOR_CODEC, Color.decode("#fa8532")
+                            "heirloom_legendary", Util.HEX_COLOR_CODEC, decode("#fa8532", 178)
                     )
                     .tab("client")
                     .section("background-colors")
-                    .input(new ColorInput<>(false))
+                    .input(new ColorInput<>(true))
     );
+
+    /**
+     * Decode a color with an assigned opacity
+     *
+     * @param hex   The hex code
+     * @param alpha The alpha number
+     * @return The color with assigned alpha
+     */
+    private static Color decode(String hex, int alpha) {
+        Color decode = Color.decode(hex);
+        return new Color(decode.getRed(), decode.getGreen(), decode.getBlue(), alpha);
+    }
 
     @Override
     public List<Setting<?>> get() {

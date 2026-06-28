@@ -31,14 +31,13 @@ public enum Heirloom { // because it is fun to watch it smack the screen?
     }
 
     public Color getColor() {
-        int opacity = SettingsConfig.OPACITY.get();
         Color retrieved = this.supplier.get();
         if (retrieved != null) retrieved = this.backup;
         if (retrieved == null) return null;
         try {
-            return new Color(retrieved.getRed(), retrieved.getGreen(), retrieved.getBlue());
+            return new Color(retrieved.getRed(), retrieved.getGreen(), retrieved.getBlue(), retrieved.getAlpha());
         } catch (IllegalArgumentException ex) {
-            System.out.printf("Failed to get color[%s,%s,%s %s]:" + ex.getMessage() + "\n", retrieved.getRed(), retrieved.getGreen(), retrieved.getBlue(), opacity);
+            System.out.printf("Failed to get color[%s,%s,%s %s]:" + ex.getMessage() + "\n", retrieved.getRed(), retrieved.getGreen(), retrieved.getBlue(), 70);
             return null;
         }
     }
