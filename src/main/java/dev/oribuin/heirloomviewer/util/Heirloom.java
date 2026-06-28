@@ -1,8 +1,6 @@
 package dev.oribuin.heirloomviewer.util;
 
-import dev.oribuin.heirloomviewer.HeirloomViewerMod;
 import dev.oribuin.heirloomviewer.config.SettingsConfig;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
@@ -11,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 import java.awt.*;
 import java.util.function.Supplier;
@@ -22,18 +21,18 @@ public enum Heirloom { // because it is fun to watch it smack the screen?
     EPIC(SettingsConfig.EPIC::get, Color.decode("#a767cf")), 
     LEGENDARY(SettingsConfig.LEGENDARY::get, Color.decode("#fa8532"));
 
-    private final Supplier<Color> supplier;
-    private final Color backup;
+    private final @NotNull Supplier<@Nullable Color> supplier;
+    private final @NotNull Color backup;
 
-    Heirloom(Supplier<@Nullable Color> supplier, @NotNull Color backup) {
+    Heirloom(@NonNull Supplier<@Nullable Color> supplier, @NotNull Color backup) {
         this.supplier = supplier;
         this.backup = backup;
     }
 
     public Color getColor() {
         Color retrieved = this.supplier.get();
-        if (retrieved != null) retrieved = this.backup;
-        if (retrieved == null) return null;
+        if (retrieved == null) retrieved = this.backup;
+        
         try {
             return new Color(retrieved.getRed(), retrieved.getGreen(), retrieved.getBlue(), retrieved.getAlpha());
         } catch (IllegalArgumentException ex) {
