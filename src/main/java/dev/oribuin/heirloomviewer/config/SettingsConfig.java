@@ -21,41 +21,42 @@ public final class SettingsConfig implements SettingHolder {
 
     public static final Setting<Integer> OPACITY = create(
             SettingBuilder.of("background_opacity", Codec.INT, 70)
+                    .tab("client")
                     .input(new NumberInput<>(1, 100))
     );
 
-    //     COMMON(Color.decode("#4e5657")), 
-    //    UNCOMMON(Color.decode("#69b869")), 
-    //    RARE(Color.decode("#54abd1")), 
-    //    EPIC(Color.decode("#a767cf")), 
-    //    LEGENDARY(Color.decode("#fa8532"));
     public static final Setting<Color> COMMON = create(SettingBuilder.of(
                             "heirloom_common", Util.HEX_COLOR_CODEC, Color.decode("#4e5657")
                     )
+                    .tab("client")
                     .section("background-colors")
                     .input(new ColorInput<>(false))
     );
     public static final Setting<Color> UNCOMMON = create(SettingBuilder.of(
                             "heirloom_uncommon", Util.HEX_COLOR_CODEC, Color.decode("#69b869")
                     )
+                    .tab("client")
                     .section("background-colors")
                     .input(new ColorInput<>(true))
     );
     public static final Setting<Color> RARE = create(SettingBuilder.of(
                             "heirloom_rare", Util.HEX_COLOR_CODEC, Color.decode("#54abd1")
                     )
+                    .tab("client")
                     .section("background-colors")
                     .input(new ColorInput<>(false))
     );
     public static final Setting<Color> EPIC = create(SettingBuilder.of(
                             "heirloom_epic", Util.HEX_COLOR_CODEC, Color.decode("#a767cf")
                     )
+                    .tab("client")
                     .section("background-colors")
                     .input(new ColorInput<>(false))
     );
     public static final Setting<Color> LEGENDARY = create(SettingBuilder.of(
                             "heirloom_legendary", Util.HEX_COLOR_CODEC, Color.decode("#fa8532")
                     )
+                    .tab("client")
                     .section("background-colors")
                     .input(new ColorInput<>(false))
     );

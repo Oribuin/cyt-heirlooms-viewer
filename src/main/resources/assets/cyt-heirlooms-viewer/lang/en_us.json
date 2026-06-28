@@ -1,0 +1,10 @@
+{
+  "tab.cyt-heirlooms-viewer.client": "CYT Heirloom Viewer by Oribuin",
+  "setting.cyt-heirlooms-viewer.background_opacity": "Background Opacity",
+  "section.cyt-heirlooms-viewer.background-colors": "Heirloom Rarity Colours",
+  "setting.cyt-heirlooms-viewer.heirloom_common": "Common Rarity",
+  "setting.cyt-heirlooms-viewer.heirloom_uncommon": "Uncommon Rarity",
+  "setting.cyt-heirlooms-viewer.heirloom_rare": "Rare Rarity",
+  "setting.cyt-heirlooms-viewer.heirloom_epic": "Epic Rarity",
+  "setting.cyt-heirlooms-viewer.heirloom_legendary": "Legendary Rarity"
+}

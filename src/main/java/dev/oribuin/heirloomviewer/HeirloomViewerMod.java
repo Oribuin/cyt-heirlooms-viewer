@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class HeirloomViewerMod implements ClientModInitializer, ConfigHolder {
 
-    public static final String MODID = "cyt-heirlooms-viewer";
+    public static final String MOD_ID = "cyt-heirlooms-viewer";
     private static HeirloomViewerMod instance;
     private Config config;
     
@@ -29,13 +29,13 @@ public class HeirloomViewerMod implements ClientModInitializer, ConfigHolder {
     public static HeirloomViewerMod getInstance() {
         return instance;
     }
-
+    
     @Override
     public Config getOrCreateConfig() {
         if (this.config != null)
             return this.config;
 
-        File folder = FabricLoader.getInstance().getConfigDir().resolve(MODID).toFile();
+        File folder = FabricLoader.getInstance().getConfigDir().resolve(MOD_ID).toFile();
         folder.mkdirs();
 
         File file = new File(folder, "heirloom-viewer.json"); // The name of the config file
